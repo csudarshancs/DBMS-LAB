@@ -1,6 +1,6 @@
-create database if not exists chandan;
+create database if not exists Sudarshan;
 show databases;
-use chandan;
+use Sudarshan;
 
 
 create table person1(driver_id varchar(10),
