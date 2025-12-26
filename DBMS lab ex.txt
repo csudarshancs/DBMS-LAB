@@ -1,4 +1,4 @@
-CREATE TABLE Passenger (
+CREATE TABLE Passenger 
     passenger_id INT PRIMARY KEY,
     name VARCHAR(50),
     dob DATE,
@@ -6,8 +6,7 @@ CREATE TABLE Passenger (
     address VARCHAR(100),
     contact_no VARCHAR(15),
     email VARCHAR(50),
-    govt_id VARCHAR(20)
-);
+    govt_id VARCHAR(20));
 INSERT INTO Passenger VALUES
 (1, 'Ravi Kumar', '1998-05-12', 'Male', 'Bangalore', '9876543210', 'ravi@gmail.com', 'AAD123'),
 (2, 'Anita Sharma', '1995-08-22', 'Female', 'Delhi', '9123456780', 'anita@gmail.com', 'AAD124'),
@@ -99,4 +98,5 @@ INSERT INTO Payment VALUES
 (404, '2025-01-04', 6000.00, 'Net Banking', 'Success', 204),
 (405, '2025-01-05', 3500.00, 'UPI', 'Pending', 205),
 (406, '2025-01-06', 4000.00, 'Credit Card', 'Success', 206);
+
 
