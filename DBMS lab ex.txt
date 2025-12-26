@@ -7,6 +7,7 @@ CREATE TABLE Passenger
     contact_no VARCHAR(15),
     email VARCHAR(50),
     govt_id VARCHAR(20));
+desc Passenger;
 INSERT INTO Passenger VALUES
 (1, 'Ravi Kumar', '1998-05-12', 'Male', 'Bangalore', '9876543210', 'ravi@gmail.com', 'AAD123'),
 (2, 'Anita Sharma', '1995-08-22', 'Female', 'Delhi', '9123456780', 'anita@gmail.com', 'AAD124'),
@@ -23,8 +24,8 @@ CREATE TABLE Flight (
     departure_time DATETIME,
     arrival_time DATETIME,
     aircraft_type VARCHAR(30),
-    seat_capacity INT
-);
+    seat_capacity INT);
+desc Flight;
 INSERT INTO Flight VALUES
 ('AI101', 'Bangalore', 'Delhi', '2025-01-10 08:00', '2025-01-10 10:30', 'A320', 180),
 ('AI102', 'Delhi', 'Mumbai', '2025-01-11 09:00', '2025-01-11 11:00', 'B737', 160),
@@ -39,8 +40,8 @@ CREATE TABLE Seat (
     flight_no VARCHAR(10),
     seat_class VARCHAR(20),
     PRIMARY KEY (seat_no, flight_no),
-    FOREIGN KEY (flight_no) REFERENCES Flight(flight_no)
-);
+    FOREIGN KEY (flight_no) REFERENCES Flight(flight_no));]
+desc Seat;
 INSERT INTO Seat VALUES
 ('1A', 'AI101', 'Business'),
 ('10B', 'AI101', 'Economy'),
@@ -59,6 +60,7 @@ CREATE TABLE Reservation (
     seat_no VARCHAR(5),
     FOREIGN KEY (passenger_id) REFERENCES Passenger(passenger_id),
     FOREIGN KEY (flight_no) REFERENCES Flight(flight_no));
+desc Reservation;
 INSERT INTO Reservation VALUES
 (201, '2025-01-01', 'Confirmed', 1, 'AI101', '1A'),
 (202, '2025-01-02', 'Confirmed', 2, 'AI102', '2A'),
@@ -73,8 +75,8 @@ CREATE TABLE Ticket (
     fare DECIMAL(8,2),
     travel_class VARCHAR(20),
     reservation_id INT,
-    FOREIGN KEY (reservation_id) REFERENCES Reservation(reservation_id)
-);
+    FOREIGN KEY (reservation_id) REFERENCES Reservation(reservation_id));
+desc Ticket;
 INSERT INTO Ticket VALUES
 (301, '2025-01-01', 5500.00, 'Business', 201),
 (302, '2025-01-02', 4500.00, 'Business', 202),
@@ -91,6 +93,7 @@ CREATE TABLE Payment (
     payment_status VARCHAR(15),
     reservation_id INT,
     FOREIGN KEY (reservation_id) REFERENCES Reservation(reservation_id));
+desc Payment;
 INSERT INTO Payment VALUES
 (401, '2025-01-01', 5500.00, 'Credit Card', 'Success', 201),
 (402, '2025-01-02', 4500.00, 'UPI', 'Success', 202),
@@ -98,5 +101,6 @@ INSERT INTO Payment VALUES
 (404, '2025-01-04', 6000.00, 'Net Banking', 'Success', 204),
 (405, '2025-01-05', 3500.00, 'UPI', 'Pending', 205),
 (406, '2025-01-06', 4000.00, 'Credit Card', 'Success', 206);
+
 
 
